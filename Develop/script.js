@@ -14,7 +14,7 @@
 
 //Create an object to store answers
 
-///////CODE////////
+///////////////////BEGIN CODE/////////////////////
 
 // Variables with characters for password
 
@@ -26,14 +26,13 @@ var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 var symbols = ["!", "@", "#", "$", "%", "&", "*"];
 
-//////////////GENERATE FUNCTION/////////////////
+//////////////GENERATE FUNCTIONS/////////////////
 
 function generatePassword() {
-  var myPassword = "";
+  //Prompt for length of password
   var length = parseInt(
     prompt("How many characters would you like your password to be?")
   );
-  //Length prompt
   if (length < 8) {
     alert("Password must be at least 8 characters");
     return;
@@ -42,87 +41,40 @@ function generatePassword() {
     alert("Password must be less than 128 characters");
     return;
   }
+  //Confirming different character requirements
+  lowercase = confirm("Include lowercase characters?");
+  uppercase = confirm("Include uppercase characters?");
+  numeric = confirm("Include numeric characters?");
+  symbols = confirm("Include special characters?");
 
-  //Confirm for uppercase
-  if (uppercase) {
-    confirm("Include uppercase characters?");
-  }
-
-  //Confirm for lowercase
-  if (lowercase) {
-    confirm("Include lowercase characters?");
-  }
-
-  //Confirm for numeric values
-  if (numbers) {
-    confirm("Include numbers?");
-  }
-
-  //Confirm for special characters
-  if (symbols) {
-    confirm("Include special characters?");
-  }
-
-  var random = {
+  //Storing answers in object
+  var passwordAnswers = {
     length: length,
     lowercase: lowercase,
     uppercase: uppercase,
     numbers: numbers,
     symbols: symbols,
   };
-
-  return myPassword;
+  return passwordAnswers;
 }
 
-// function finalPassword() {
-//   for (var i = 0; i < length; i++) {
-//     random.Math.random
-//   }
-// }
+//Generating random characters
+function random(arr) {
+  var one = Math.floor(Math.random() * arr.length);
+  var two = arr[one];
+  return two;
+}
 
-// var length = parseInt(
-//   prompt("How many characters would you like your password to be?")
-// );
-// if (length < 8) {
-//   alert("Password must be at least 8 characters");
-//   return;
-// }
-// if (length > 128) {
-//   alert("Password must be less than 128 characters");
-//   return;
-// }
-// lowercase = confirm("Include lowercase characters?");
-// uppercase = confirm("Include uppercase characters?");
-// numeric = confirm("Include numeric characters?");
-// symbols = confirm("Include special characters?");
-
-//   var passwordAnswers = {
-//     length: length,
-//     lowercase: lowercase,
-//     uppercase: uppercase,
-//     numbers: numbers,
-//     symbols: symbols,
-//   };
-//   return passwordAnswers;
-// }
-
-// function random(arr) {
-//   var one = Math.floor(Math.random() * arr.length);
-//   var two = arr[one];
-//   return two;
-// }
-//Function that returns the object providing the password based off of which ever amount of characters
-
-//Function will use passwordAnswers, random(arr)
-
-//function finalPassword
-
-// function myPassword() {
-//  var Endpassword = passwordAnswers[random];
-//  return Endpassword;
-// }
+//Random password
+function generatedPassword() {
+  for (var i = 0; i < length; i++) {
+    random(arr).Math.random() * passwordAnswers;
+    newPassword = generatedPassword();
+  }
+}
 
 ///////// GIVEN /////////
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
